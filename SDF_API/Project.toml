@@ -1,0 +1,12 @@
+name = "SDF_API"
+uuid = "63756dbf-a84d-4e40-ba07-4ef0654513b2"
+authors = ["Jabelic <hibiki990523@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Genie = "c43c736e-a2d1-11e8-161f-af95117fbd1e"
+Glob = "c27321d9-0574-5035-807b-f59d2c89b15c"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+PackageCompiler = "9b87118b-4619-50d2-8e1e-99f35a4d4d9d"
+TOML = "fa267f1f-6049-4f14-aa54-33bafae1ed76"

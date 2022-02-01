@@ -1,0 +1,4 @@
+name = "client"
+uuid = "cfac25b9-bf08-46b4-9467-98e0f7792711"
+authors = ["Jabelic <hibiki990523@gmail.com>"]
+version = "0.1.0"
