@@ -10,7 +10,9 @@
   <h1 class="rainbow_font">Data Generator</h1>
   <Canvas />
   <div>
-    <button class="btn--orange" on:click={() => clearPage}> clearPage!!</button>
+    <button class="btn--orange" on:click={() => clearPage()}>
+      clearPage!!</button
+    >
   </div>
 </main>
 
