@@ -1,5 +1,8 @@
 <script>
   import { onMount } from "svelte";
+  import { use } from "./sdf";
+  import { coordinatesToCSV } from "./csv";
+  const { SDF } = use();
 
   onMount(async () => {
     const canvas = document.querySelector("#draw-area");
@@ -36,10 +39,8 @@
     context.strokeStyle = "#000000";
     if (lastPosition.x === null || lastPosition.y === null) {
       context.moveTo(x, y);
-      // addCoordinate(x - boardSize.x, y - boardSize.y);
     } else {
       context.moveTo(lastPosition.x, lastPosition.y);
-      // addCoordinate(x - boardSize.x, y - boardSize.y);
     }
     context.lineTo(x, y);
     context.stroke();
@@ -55,53 +56,10 @@
   };
   //   https://www.delftstack.com/ja/howto/javascript/export-javascript-csv/
 
-  const CORS_HEADER = {
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "OPTIONS,POST,PUT,GET",
-  };
-  const request = async (data) => {
-    const returnValue = { data: "" };
-    try {
-      let result = null;
-      const url = "http://127.0.0.1:8000/SDF";
-      const res = await fetch(url, {
-        mode: "no-cors",
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: data,
-      });
-      returnValue.data = res;
-      return res.body;
-    } catch (e) {
-      console.error(e);
-    } finally {
-      console.debug(returnValue.data);
-    }
-  };
-
-  const SDF = async () => {
-    let csvContent = "";
-    coordinates.forEach((rowArray) => {
-      // FIXME: use map.
-      let row = rowArray.join(",");
-      csvContent += row + "\r\n";
-    });
-    const returns = await request(csvContent);
-    console.debug(csvContent, returns);
-  };
-
-  const coordinatesToCSV = () => {
-    let csvContent = "data:text/csv;charset=utf-8,";
-    coordinates.forEach((rowArray) => {
-      let row = rowArray.join(",");
-      csvContent += row + "\r\n";
-    });
-    let encodedUri = encodeURI(csvContent);
-    window.open(encodedUri);
-  };
+  function handleTouchMove(event) {
+    event.preventDefault();
+  }
+  document.addEventListener("touchmove", handleTouchMove, { passive: false });
 </script>
 
 <main>
@@ -111,8 +69,28 @@
     height="400px"
     style="border: 1px solid #000000;"
   />
-  <button class="button" on:click={SDF}> convert!!</button>
-  <button class="button" on:click={coordinatesToCSV}> generateCSV</button>
+  <button class="btn--orange" on:click={() => SDF(coordinates)}>
+    convert!!</button
+  >
+  <button class="btn--orange" on:click={() => coordinatesToCSV(coordinates)}>
+    generateCSV</button
+  >
 </main>
 
-<style></style>
+<style>
+  .btn--orange,
+  button.btn--orange {
+    color: #fff;
+    border-radius: 100vh;
+    background-color: #eb6100;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+    display: block;
+  }
+  .btn--orange:hover,
+  button.btn--orange:hover {
+    color: #fff;
+    background: #f56500;
+  }
+</style>

@@ -10,7 +10,7 @@
   <h1 class="rainbow_font">Data Generator</h1>
   <Canvas />
   <div>
-    <button class="button" on:click={clearPage}> clearPage!!</button>
+    <button class="btn--orange" on:click={() => clearPage}> clearPage!!</button>
   </div>
 </main>
 
@@ -20,6 +20,21 @@
     padding: 1em;
     max-width: 240px;
     margin: 0 auto;
+  }
+  .btn--orange,
+  button.btn--orange {
+    display: block;
+    color: #fff;
+    border-radius: 100vh;
+    background-color: #eb6100;
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+  }
+  .btn--orange:hover,
+  button.btn--orange:hover {
+    color: #fff;
+    background: #f56500;
   }
 
   h1 {
