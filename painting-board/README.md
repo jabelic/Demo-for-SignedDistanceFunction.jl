@@ -1,8 +1,8 @@
-*Psst — looking for a more complete solution? Check out [SvelteKit](https://kit.svelte.dev), the official framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.*
+<!-- *Psst — looking for a more complete solution? Check out [SvelteKit](https://kit.svelte.dev), the official framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing.*
 
-*Looking for a shareable component template instead? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+*Looking for a shareable component template instead? Go here [sveltejs/component-template](https://github.com/sveltejs/component-template)* -->
 
----
+<!-- ---
 
 # svelte app
 
@@ -106,4 +106,12 @@ Then, from within your project folder:
 ```bash
 npm run build
 surge public my-project.surge.sh
-```
+``` -->
+
+
+# Painting-board for signed distance functions
+
+## start up
+
+`$ npm run dev:host`
+

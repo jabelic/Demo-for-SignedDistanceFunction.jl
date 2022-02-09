@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { use } from "./sdf";
   import { coordinatesToCSV } from "./csv";
-  const { SDF } = use();
+  const { SDF, requestStatus } = use();
 
   onMount(async () => {
     const canvas = document.querySelector("#draw-area");
@@ -75,6 +75,7 @@
   <button class="btn--orange" on:click={() => coordinatesToCSV(coordinates)}>
     generateCSV</button
   >
+  <div>{$requestStatus}</div>
 </main>
 
 <style>
