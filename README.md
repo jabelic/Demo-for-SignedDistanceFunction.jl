@@ -20,7 +20,7 @@
   - API endpoint is set `http://127.0.0.1:8000`, but the endpoint may not be correct, so make sure you check the endpoint when you start the API.
 
 
-## start-up
+## Usage
 
 terminal1
 
@@ -28,7 +28,7 @@ terminal1
 
 terminal2
 
-`$ cd painting-board`
+`$ cd painting-board`  
 `$ npm run dev:host`
 
 
